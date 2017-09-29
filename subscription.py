@@ -48,6 +48,7 @@ class YoutubeReader:
 
 
     def get_channel_videos(self, channel_url, videos):
+        print "getting " + channel_url
         tree = ElementTree.parse(urllib2.urlopen(channel_url))
         for video in tree.getroot().findall('{http://www.w3.org/2005/Atom}entry'):
             videos.add(self.get_video_details(video))
